@@ -17,6 +17,7 @@ import getpass
 import urllib3
 from urllib3.exceptions import InsecureRequestWarning
 
+# --- FIX FOR DATASET DOWNLOAD ---
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
