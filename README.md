@@ -37,7 +37,7 @@ $env:AM_SC_API_KEY="your-secret-token-here"
 Run a simple training session. This logs metrics and params but **does not** register the model.
 
 ```bash
-python train_mnist_mlflow_v2.py --epochs 3 --phase development
+python train_mnist_mlflow.py --epochs 5 --phase development --register
 ```
 
 ### 2. Production Run (Register & Promote)
