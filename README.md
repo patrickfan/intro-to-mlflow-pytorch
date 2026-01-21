@@ -37,14 +37,14 @@ $env:AM_SC_API_KEY="your-secret-token-here"
 Run a simple training session. This logs metrics and params but **does not** register the model.
 
 ```bash
-python train_mnist_mlflow.py --epochs 5 --phase development --register
+python train_mnist_mlflow.py --epochs 5 --phase development
 ```
 
 ### 2. Production Run (Register & Promote)
 Train the model, register it to the Model Registry, promote it to the `@production` alias, and run an inference sanity check.
 
 ```bash
-python train_mnist_mlflow_v2.py --register --epochs 5 --phase production --note "Baseline CNN model"
+python train_mnist_mlflow.py --register --epochs 5 --phase production --note "Baseline CNN model"
 ```
 
 ### Available Arguments
