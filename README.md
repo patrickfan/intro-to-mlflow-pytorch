@@ -15,7 +15,6 @@ It serves as a reference implementation for integrating the American Science Clo
 
 ## Prerequisites
 
-* Python 3.8+
 * Access to the MLflow Tracking Server
 * An API Key for authentication
 
