@@ -4,7 +4,7 @@ This project demonstrates a complete MLOps lifecycle using **PyTorch** for model
 
 It serves as a reference implementation for integrating the American Science Cloud MLflow server into research workflows.
 
-## 🚀 Key Features
+## Key Features
 
 * **PyTorch CNN:** trains a Convolutional Neural Network on the MNIST dataset.
 * **MLflow Tracking:** Automates logging of hyperparameters, loss metrics, and confusion matrix plots.
@@ -13,14 +13,14 @@ It serves as a reference implementation for integrating the American Science Clo
 * **Alias Management:** Demonstrates how to programmatically promote a model version to `@production` and perform inference using that alias.
 * **Security:** Includes authentication patching for API Keys and SSL certificate handling.
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 * Python 3.8+
 * Access to the MLflow Tracking Server
 * An API Key for authentication
 
 
-## ⚙️ Configuration
+## Configuration
 
 Before running the script, you must export your API key as an environment variable. The script expects the key in `AM_SC_API_KEY`.
 
@@ -72,14 +72,17 @@ This script implements the following workflow:
     * Assigns the **Alias** `@production` to this new version.
     * Loads the model using the URI `models:/MNIST_CNN@production` to verify it works.
 
-## Project Structure
+## 📁 Project Structure
 
+```text
 .
 ├── train_mnist_mlflow_v2.py   # Main training script
 ├── requirements.txt           # Python dependencies
 └── README.md                  # Project documentation
 
 ## Requirements
+
+```text
 mlflow>=3.0.0
 torch>=1.13.0
 torchvision>=0.14.0
