@@ -72,13 +72,14 @@ This script implements the following workflow:
     * Assigns the **Alias** `@production` to this new version.
     * Loads the model using the URI `models:/MNIST_CNN@production` to verify it works.
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 .
 ├── train_mnist_mlflow_v2.py   # Main training script
 ├── requirements.txt           # Python dependencies
 └── README.md                  # Project documentation
+```
 
 ## Requirements
 
