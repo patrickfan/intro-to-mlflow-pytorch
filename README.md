@@ -137,4 +137,4 @@ You can combine multiple filters using `AND`.
 
 **Example: Find the best production candidate by Ming**
 ```sql
-tags.owner = 'ming' AND tags.project.phase = 'tuning' AND metrics.val_accuracy > 0.95
+tags.owner = '8cf' AND tags.project.phase = 'tuning' AND metrics.val_accuracy > 0.95
