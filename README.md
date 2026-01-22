@@ -90,3 +90,41 @@ matplotlib
 numpy
 scikit-learn
 urllib3
+
+
+## 🔎 How to Search Runs in MLflow
+
+You can filter experiments in the MLflow UI using a SQL-like syntax. Here are the specific search patterns relevant to this project.
+
+### 1. Filtering by Tags (Metadata)
+Use `tags.<key>` to filter by the organizational data we added.
+
+| Goal | Syntax | Example |
+| :--- | :--- | :--- |
+| **Project Phase** | `tags.project.phase = '...'` | `tags.project.phase = 'production'` |
+| **Owner** | `tags.owner = '...'` | `tags.owner = 'ming'` |
+| **Model Type** | `tags.model.type = '...'` | `tags.model.type = 'Computer Vision'` |
+| **Git Commit** | `tags.git.commit = '...'` | `tags.git.commit = 'a1b2c3d'` |
+
+### 2. Filtering by Metrics (Performance)
+Use `metrics.<name>` to find your best-performing models.
+
+| Goal | Syntax | Example |
+| :--- | :--- | :--- |
+| **High Accuracy** | `metrics.val_accuracy > ...` | `metrics.val_accuracy > 0.95` |
+| **Low Loss** | `metrics.train_loss < ...` | `metrics.train_loss < 0.1` |
+
+### 3. Filtering by Parameters (Configuration)
+Use `params.<name>` to find runs with specific hyperparameters.
+
+| Goal | Syntax | Example |
+| :--- | :--- | :--- |
+| **Batch Size** | `params.batch_size = '...'` | `params.batch_size = '64'` |
+| **Optimizer** | `params.optimizer = '...'` | `params.optimizer = 'Adam'` |
+
+### 4. Complex Queries (Advanced)
+You can combine multiple filters using `AND`.
+
+**Example: Find the best production candidate by Ming**
+```sql
+tags.owner = 'ming' AND tags.project.phase = 'tuning' AND metrics.val_accuracy > 0.95
