@@ -92,6 +92,29 @@ scikit-learn
 urllib3
 ```
 
+## 🧠 Core MLflow Concepts
+
+### 1. Experiments
+High-level logical groupings of related runs. This helps separate different projects or major architectural changes.
+
+mlflow.set_experiment("mnist_cnn_pytorch")
+
+
+2. **Runs**: A single execution of training code. Each run captures hyperparameters and performance metrics.
+
+   # Starts a new tracking context & Tracks training configuration and performance
+   with mlflow.start_run():
+       mlflow.log_param("batch_size", batch_size)
+       mlflow.log_param("epochs", epochs)
+       mlflow.log_param("learning_rate", lr)
+       mlflow.log_param("optimizer", "Adam")
+
+       mlflow.log_metric("train_loss", train_loss, step=epoch)
+       mlflow.log_metric("val_accuracy", acc, step=epoch)
+
+
+
+
 ## 🔎 How to Search Runs in MLflow
 
 You can filter experiments in the MLflow UI using a SQL-like syntax. Here are the specific search patterns relevant to this project.
