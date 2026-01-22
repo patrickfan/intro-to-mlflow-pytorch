@@ -97,7 +97,9 @@ urllib3
 ### 1. Experiments
 High-level logical groupings of related runs. This helps separate different projects or major architectural changes.
 
+```
 mlflow.set_experiment("mnist_cnn_pytorch")
+```
 
 
 ### 2: Runs
@@ -115,8 +117,34 @@ with mlflow.start_run():
     mlflow.log_metric("val_accuracy", acc, step=epoch)
 ```
 
+### 3:Artifacts 
+Output files logged during a run, such as plot and configuration files.
 
+```
+mlflow.log_artifact("confusion_matrix.png", artifact_path="plots")
+```
 
+### 4:Registered Models
+Named entities in the Model Registry. Once a model is "Registered," it is treated as an asset that can be versioned (v1, v2, v3).
+
+```
+# Log and register the model in one step
+mlflow.pytorch.log_model(
+    pytorch_model=model,
+    artifact_path="model",
+    registered_model_name="MNIST_CNN"
+)
+```
+
+### 5:Model Aliases 
+Mutable, user-defined labels (like production or champion) used to point to specific model versions.
+```
+# Assign an alias to a specific version
+client.set_registered_model_alias(name="MNIST_CNN", alias="production", version="1")
+
+# Load a model using its alias
+model = mlflow.pytorch.load_model("models:/MNIST_CNN@production")
+```
 
 
 
