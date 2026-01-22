@@ -75,8 +75,7 @@ This script implements the following workflow:
 
 ```text
 .
-├── train_mnist_mlflow_v2.py   # Main training script
-├── requirements.txt           # Python dependencies
+├── train_mnist_mlflow.py   # Main training script
 └── README.md                  # Project documentation
 ```
 
