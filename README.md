@@ -122,7 +122,17 @@ Use `params.<name>` to find runs with specific hyperparameters.
 | **Batch Size** | `params.batch_size = '...'` | `params.batch_size = '64'` |
 | **Optimizer** | `params.optimizer = '...'` | `params.optimizer = 'Adam'` |
 
-### 4. Complex Queries (Advanced)
+### 4. Searching by Attributes (System Fields)
+Attributes are built-in MLflow fields (not custom tags) that track the run's metadata.
+
+| Goal | Syntax | Example |
+| :--- | :--- | :--- |
+| **Run Name** | `attributes.run_name = '...'` | `attributes.run_name = 'MNIST_production_ming'` |
+| **Run Name (Partial)** | `attributes.run_name LIKE '...'` | `attributes.run_name LIKE 'MNIST%'` |
+| **Run Status** | `attributes.status = '...'` | `attributes.status = 'FINISHED'` (or `FAILED`) |
+| **Time Created** | `attributes.start_time > ...` | `attributes.start_time > 1672531200000` (Unix Timestamp) |
+
+### 5. Complex Queries (Advanced)
 You can combine multiple filters using `AND`.
 
 **Example: Find the best production candidate by Ming**
