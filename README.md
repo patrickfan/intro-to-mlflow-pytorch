@@ -85,6 +85,7 @@ This script implements the following workflow:
 mlflow>=3.0.0
 torch>=1.13.0
 torchvision>=0.14.0
+Python 3.8+
 matplotlib
 numpy
 scikit-learn
