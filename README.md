@@ -127,7 +127,7 @@ Attributes are built-in MLflow fields (not custom tags) that track the run's met
 
 | Goal | Syntax | Example |
 | :--- | :--- | :--- |
-| **Run Name** | `attributes.run_name = '...'` | `attributes.run_name = 'MNIST_production_ming'` |
+| **Run Name** | `attributes.run_name = '...'` | `attributes.run_name = 'MNIST_production_8cf'` |
 | **Run Name (Partial)** | `attributes.run_name LIKE '...'` | `attributes.run_name LIKE 'MNIST%'` |
 | **Run Status** | `attributes.status = '...'` | `attributes.status = 'FINISHED'` (or `FAILED`) |
 | **Time Created** | `attributes.start_time > ...` | `attributes.start_time > 1672531200000` (Unix Timestamp) |
