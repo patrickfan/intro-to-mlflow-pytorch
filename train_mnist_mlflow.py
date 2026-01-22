@@ -243,7 +243,7 @@ if __name__ == "__main__":
 
         # [MLFLOW TRACKING 5] log_artifact
         # Artifacts are output FILES (images, dataframes, parquet files, etc.).
-        # This uploads the 'confusion_matrix.png' to the artifact store (e.g., S3/MinIO) associated with this run.
+        # This uploads the 'confusion_matrix.png' to the artifact store (e.g., S3) associated with this run.
         mlflow.log_artifact("confusion_matrix.png", artifact_path="plots")
 
         # ==========================================
