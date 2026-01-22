@@ -190,6 +190,5 @@ Attributes are built-in MLflow fields (not custom tags) that track the run's met
 ### 5. Complex Queries (Advanced)
 You can combine multiple filters using `AND`.
 
-**Example: Find the best production candidate by Ming**
 ```sql
 tags.owner = '8cf' AND tags.project.phase = 'development' AND metrics.val_accuracy > 0.95
