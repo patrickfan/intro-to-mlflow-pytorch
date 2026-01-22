@@ -155,7 +155,7 @@ if __name__ == "__main__":
     # [MLFLOW TRACKING 1] start_run
     # This initiates a new "Run" (a single execution of your code).
     # The 'with' statement ensures the run is automatically closed if the script crashes.
-    # We name the run dynamically (e.g., "MNIST_development_ming") so it's easy to spot in the UI.
+    # We name the run dynamically (e.g., "MNIST_development_8cf") so it's easy to spot in the UI.
     with mlflow.start_run(run_name=f"MNIST_{args.phase}_{args.owner}") as run:
         
         # Capture Run ID for reference
