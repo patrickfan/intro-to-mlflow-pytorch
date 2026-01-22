@@ -90,7 +90,7 @@ matplotlib
 numpy
 scikit-learn
 urllib3
-
+```
 
 ## 🔎 How to Search Runs in MLflow
 
