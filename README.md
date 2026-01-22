@@ -102,7 +102,7 @@ Use `tags.<key>` to filter by the organizational data we added.
 | Goal | Syntax | Example |
 | :--- | :--- | :--- |
 | **Project Phase** | `tags.project.phase = '...'` | `tags.project.phase = 'production'` |
-| **Owner** | `tags.owner = '...'` | `tags.owner = 'ming'` |
+| **Owner** | `tags.owner = '...'` | `tags.owner = '8cf'` |
 | **Model Type** | `tags.model.type = '...'` | `tags.model.type = 'Computer Vision'` |
 | **Git Commit** | `tags.git.commit = '...'` | `tags.git.commit = 'a1b2c3d'` |
 
