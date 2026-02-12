@@ -110,9 +110,11 @@ python Modify_artifact_location_register_inference.py \
 
 ```text
 .
-├── train_mnist_mlflow.py   # Main training script
-├── register_and_inference.py   # Main register & inference script
-├── upload_external_model.py   # Upload model to the server
+├── train_mnist_mlflow.py                     # Standard training script (Logs artifacts to MLflow server)
+├── register_and_inference.py                 # Standard registration & inference (Downloads model from server)
+├── upload_external_model.py                  # Utility to upload an existing local model to MLflow
+├── Modify_artifact_location.py               # [Large Model] Training script that saves artifacts to a local shared path 
+├── Modify_artifact_location_register_inference.py # [Large Model] Zero-copy registration & inference from shared storage
 └── README.md                  # Project documentation
 ```
 
