@@ -40,11 +40,11 @@ Run a simple training session. This logs metrics and params but **does not** reg
 python train_mnist_mlflow.py --epochs 5 --phase development
 ```
 
-### 2. Production Run (Register & Promote)
+### 2. Production Run (Tracking & Register & Promote)
 Train the model, register it to the Model Registry, promote it to the `@production` alias, and run an inference sanity check.
 
 ```bash
-python train_mnist_mlflow.py --register --epochs 5 --phase production --note "Baseline CNN model"
+python train_mnist_mlflow.py --epochs 5 --register --phase production --note "Baseline CNN model"
 ```
 
 ### Available Arguments
