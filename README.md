@@ -54,16 +54,16 @@ Register the model to the Model Registry, promote it to the `@production` alias,
 python register_and_inference.py --run_id d87bbf048599435f9798501d6ba3d3d6
 ```
 
-### Large Model Workflow (Shared Filesystem)
+## Large Model Workflow (Shared Filesystem)
 Standard MLflow operations upload model artifacts to the tracking server. However, for large models (GBs/TBs), uploading to a remote server may fail due to timeouts, and downloading the full model for every inference job is computationally infeasible.
 
-# This workflow solves that by decoupling metadata from storage:
+* This workflow solves that by decoupling metadata from storage:
 
-## Metadata (metrics, params) is logged to the remote MLflow server.
+* ** Metadata (metrics, params) is logged to the remote MLflow server.**
 
-## Heavy Artifacts (model weights) are saved directly to a high-speed shared filesystem (e.g., Lustre/GPFS).
+* ** Heavy Artifacts (model weights) are saved directly to a high-speed shared filesystem. **
 
-## Inference is performed via "Zero-Copy" loading, reading directly from the storage path without network transfer.
+* ** Inference is performed via "Zero-Copy" loading, reading directly from the storage path without network transfer. **
 
 ### 1. Training with Custom Artifact Storage
 Runs the training session but forces the artifacts to be stored in a specific local or shared directory (--target_path) instead of uploading them to the server.
