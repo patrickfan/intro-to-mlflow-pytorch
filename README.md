@@ -39,7 +39,16 @@ Run a simple training session. This logs metrics and params but **does not** reg
 ```bash
 python train_mnist_mlflow.py --epochs 5 --phase development
 ```
+This script implements the following workflow:
 
+1.  **Setup:** Patches `mlflow` to inject the `X-Api-Key` header for authentication.
+2.  **Train:** Standard PyTorch training loop.
+3.  **Log:** Sends metrics (accuracy, loss) and artifacts (confusion matrix PNG) to the remote server.
+4.  **Register (Optional):**
+    * Saves the model as a new **Version** in the Model Registry.
+    * Assigns the **Alias** `@production` to this new version.
+    * Loads the model using the URI `models:/MNIST_CNN@production` to verify it works.
+      
 ### 2. Production Run (Tracking & Register & Promote)
 Train the model, register it to the Model Registry, promote it to the `@production` alias, and run an inference sanity check.
 
@@ -95,18 +104,6 @@ python Modify_artifact_location_register_inference.py \
   --model_name "MNIST_Large_Model"
 ```
 
-
-##  MLOps Workflow Explained
-
-This script implements the following workflow:
-
-1.  **Setup:** Patches `mlflow` to inject the `X-Api-Key` header for authentication.
-2.  **Train:** Standard PyTorch training loop.
-3.  **Log:** Sends metrics (accuracy, loss) and artifacts (confusion matrix PNG) to the remote server.
-4.  **Register (Optional):**
-    * Saves the model as a new **Version** in the Model Registry.
-    * Assigns the **Alias** `@production` to this new version.
-    * Loads the model using the URI `models:/MNIST_CNN@production` to verify it works.
 
 ## Project Structure
 
