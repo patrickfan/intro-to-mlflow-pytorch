@@ -12,7 +12,7 @@ It serves as a reference implementation for integrating the American Science Clo
 * **Model Registry:** Automatically registers trained models to the central MLflow Model Registry.
 * **Alias Management:** Demonstrates how to programmatically promote a model version to `@production` and perform inference using that alias.
 * **Security:** Includes authentication patching for API Keys and SSL certificate handling.
-* **Large Model Optimization:** Supports a "Zero-Copy" workflow for large models (GBs/TBs). Metadata is logged to the remote server, while heavy artifacts are stored on high-speed shared filesystems to avoid network bottlenecks during training and inference.
+* **Large Model Workflow:** Supports a "Zero-Copy" workflow for large models (GBs/TBs). Metadata is logged to the remote server, while heavy artifacts are stored on high-speed shared filesystems to avoid network bottlenecks during training and inference.
   
 ## Prerequisites
 
