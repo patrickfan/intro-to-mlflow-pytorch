@@ -39,6 +39,14 @@ Run a simple training session. This logs metrics and params but **does not** reg
 ```bash
 python train_mnist_mlflow.py --epochs 5 --phase development
 ```
+      
+### 2. Production Run (Tracking & Register & Promote)
+Train the model, register it to the Model Registry, promote it to the `@production` alias, and run an inference sanity check.
+
+```bash
+python train_mnist_mlflow.py --epochs 5 --register --phase production --note "Baseline CNN model"
+```
+
 This script implements the following workflow:
 
 1.  **Setup:** Patches `mlflow` to inject the `X-Api-Key` header for authentication.
@@ -49,13 +57,6 @@ This script implements the following workflow:
     * Assigns the **Alias** `@production` to this new version.
     * Loads the model using the URI `models:/MNIST_CNN@production` to verify it works.
       
-### 2. Production Run (Tracking & Register & Promote)
-Train the model, register it to the Model Registry, promote it to the `@production` alias, and run an inference sanity check.
-
-```bash
-python train_mnist_mlflow.py --epochs 5 --register --phase production --note "Baseline CNN model"
-```
-
 ### 3. Register & Inference
 Register the model to the Model Registry, promote it to the `@production` alias, and run an inference sanity check.
 
