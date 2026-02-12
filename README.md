@@ -54,6 +54,17 @@ Register the model to the Model Registry, promote it to the `@production` alias,
 python register_and_inference.py --run_id d87bbf048599435f9798501d6ba3d3d6
 ```
 
+### Available Arguments
+
+| Argument | Default | Description |
+| :--- | :--- | :--- |
+| `--batch_size` | 64 | Batch size for training. |
+| `--epochs` | 1 | Number of training epochs. |
+| `--lr` | 0.001 | Learning rate (Adam optimizer). |
+| `--phase` | development | Tag for project phase (`development`, `tuning`, `production`). |
+| `--register` | False | **Flag.** If present, registers model and promotes to `@production`. |
+| `--note` | "" | Optional text note to attach to the run. |
+
 ## Large Model Workflow (Shared Filesystem)
 Standard MLflow operations upload model artifacts to the tracking server. However, for large models (GBs/TBs), uploading to a remote server may fail due to timeouts, and downloading the full model for every inference job is computationally infeasible.
 
@@ -83,17 +94,6 @@ python Modify_artifact_location_register_inference.py \
   --run_id <YOUR_RUN_ID> \
   --model_name "MNIST_Large_Model"
 ```
-
-### Available Arguments
-
-| Argument | Default | Description |
-| :--- | :--- | :--- |
-| `--batch_size` | 64 | Batch size for training. |
-| `--epochs` | 1 | Number of training epochs. |
-| `--lr` | 0.001 | Learning rate (Adam optimizer). |
-| `--phase` | development | Tag for project phase (`development`, `tuning`, `production`). |
-| `--register` | False | **Flag.** If present, registers model and promotes to `@production`. |
-| `--note` | "" | Optional text note to attach to the run. |
 
 
 ##  MLOps Workflow Explained
