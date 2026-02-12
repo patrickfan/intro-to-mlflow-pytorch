@@ -59,11 +59,11 @@ Standard MLflow operations upload model artifacts to the tracking server. Howeve
 
 * This workflow solves that by decoupling metadata from storage:
 
-* ** Metadata (metrics, params) is logged to the remote MLflow server.**
+* Metadata (metrics, params) is logged to the remote MLflow server.
 
-* ** Heavy Artifacts (model weights) are saved directly to a high-speed shared filesystem. **
+* Heavy Artifacts (model weights) are saved directly to a high-speed shared filesystem. 
 
-* ** Inference is performed via "Zero-Copy" loading, reading directly from the storage path without network transfer. **
+* Inference is performed via "Zero-Copy" loading, reading directly from the storage path without network transfer. 
 
 ### 1. Training with Custom Artifact Storage
 Runs the training session but forces the artifacts to be stored in a specific local or shared directory (--target_path) instead of uploading them to the server.
