@@ -83,6 +83,7 @@ This script implements the following workflow:
 ```text
 .
 ├── train_mnist_mlflow.py   # Main training script
+├── register_and_inference.py   # Main register & inference script
 └── README.md                  # Project documentation
 ```
 
