@@ -74,7 +74,7 @@ mlflow.set_tracking_uri("https://mlflow.american-science-cloud.org")
 # An "Experiment" is a folder/bucket that groups related runs together.
 # If "mnist_cnn_pytorch_v1" doesn't exist, MLflow creates it.
 # If it does exist, we just start logging new runs into it.
-experiment_name = "mnist_cnn_pytorch"
+experiment_name = "mnist_cnn_pytorch_exp"
 mlflow.set_experiment(experiment_name)
 
 # --------------------------------------------------
