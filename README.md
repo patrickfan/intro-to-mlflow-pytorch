@@ -84,6 +84,7 @@ This script implements the following workflow:
 .
 ├── train_mnist_mlflow.py   # Main training script
 ├── register_and_inference.py   # Main register & inference script
+├── upload_external_model.py   # Upload model to the server
 └── README.md                  # Project documentation
 ```
 
