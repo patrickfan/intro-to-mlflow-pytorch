@@ -103,7 +103,7 @@ Registers the model using the existing storage path (no file movement) and perfo
 ```bash
 python Modify_artifact_location_register_inference.py \
   --run_id <YOUR_RUN_ID> \
-  --model_name "MNIST_Large_Model"
+  --model_name <model name>
 ```
 
 
