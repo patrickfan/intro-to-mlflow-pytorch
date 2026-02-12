@@ -51,7 +51,7 @@ python train_mnist_mlflow.py --epochs 5 --register --phase production --note "Ba
 Register the model to the Model Registry, promote it to the `@production` alias, and run an inference sanity check.
 
 ```bash
-python register_and_inference.py d87bbf048599435f9798501d6ba3d3d6
+python register_and_inference.py --run_id d87bbf048599435f9798501d6ba3d3d6
 ```
 
 ### Available Arguments
