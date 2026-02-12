@@ -12,6 +12,11 @@ from urllib3.exceptions import InsecureRequestWarning
 os.environ["MLFLOW_TRACKING_INSECURE_TLS"] = "true"
 urllib3.disable_warnings(InsecureRequestWarning)
 
+AMSC_API_KEY_ENV = "AM_SC_API_KEY"   # token lives here
+
+if AMSC_API_KEY_ENV not in os.environ:
+    print(f"Warning: {AMSC_API_KEY_ENV} not found in environment.")
+
 # Function to inject API Key (Reuse your existing logic here)
 def enable_amsc_x_api_key():
     import mlflow.utils.rest_utils as rest_utils
