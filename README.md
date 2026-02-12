@@ -47,6 +47,13 @@ Train the model, register it to the Model Registry, promote it to the `@producti
 python train_mnist_mlflow.py --epochs 5 --register --phase production --note "Baseline CNN model"
 ```
 
+### 3. Register & Inference
+Register the model to the Model Registry, promote it to the `@production` alias, and run an inference sanity check.
+
+```bash
+python register_and_inference.py d87bbf048599435f9798501d6ba3d3d6
+```
+
 ### Available Arguments
 
 | Argument | Default | Description |
