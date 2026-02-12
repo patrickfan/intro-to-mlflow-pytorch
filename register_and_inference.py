@@ -16,7 +16,7 @@ AMSC_API_KEY_ENV = "AM_SC_API_KEY"   # token lives here
 
 if AMSC_API_KEY_ENV not in os.environ:
     print(f"Warning: {AMSC_API_KEY_ENV} not found in environment.")
-
+    
 # Inject X-Api-Key into all MLflow REST calls
 def enable_amsc_x_api_key():
     """
@@ -62,16 +62,22 @@ def register_and_serve(run_id):
     prod_uri = f"models:/{model_name}@production"
     print(f"Inference Service: Loading model from {prod_uri}...")
     
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"    Inference Device: {device}")
+    
     loaded_model = mlflow.pytorch.load_model(prod_uri)
+    loaded_model.to(device)
     loaded_model.eval()
 
     # Test inference with one sample from the test set
     test_ds = datasets.MNIST(root="./data", train=False, download=True, transform=transforms.ToTensor())
     sample, label = test_ds[0]
+
+    input_tensor = sample.unsqueeze(0).to(device)
     
     with torch.no_grad():
         # Add batch dimension and predict
-        prediction = loaded_model(sample.unsqueeze(0)).argmax(dim=1).item()
+        prediction = loaded_model(input_tensor).argmax(dim=1).item()
     
     print(f"\n--- Inference Result ---")
     print(f"Actual Label: {label}")
