@@ -12,6 +12,11 @@ from urllib3.exceptions import InsecureRequestWarning
 os.environ["MLFLOW_TRACKING_INSECURE_TLS"] = "true"
 urllib3.disable_warnings(InsecureRequestWarning)
 
+AMSC_API_KEY_ENV = "AM_SC_API_KEY"   # token lives here
+
+if AMSC_API_KEY_ENV not in os.environ:
+    print(f"Warning: {AMSC_API_KEY_ENV} not found in environment.")
+
 # Inject X-Api-Key into all MLflow REST calls
 def enable_amsc_x_api_key():
     """
