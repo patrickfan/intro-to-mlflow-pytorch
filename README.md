@@ -54,6 +54,36 @@ Register the model to the Model Registry, promote it to the `@production` alias,
 python register_and_inference.py --run_id d87bbf048599435f9798501d6ba3d3d6
 ```
 
+### Large Model Workflow (Shared Filesystem)
+Standard MLflow operations upload model artifacts to the tracking server. However, for large models (GBs/TBs), uploading to a remote server may fail due to timeouts, and downloading the full model for every inference job is computationally infeasible.
+
+# This workflow solves that by decoupling metadata from storage:
+
+## Metadata (metrics, params) is logged to the remote MLflow server.
+
+## Heavy Artifacts (model weights) are saved directly to a high-speed shared filesystem (e.g., Lustre/GPFS).
+
+## Inference is performed via "Zero-Copy" loading, reading directly from the storage path without network transfer.
+
+### 1. Training with Custom Artifact Storage
+Runs the training session but forces the artifacts to be stored in a specific local or shared directory (--target_path) instead of uploading them to the server.
+
+```bash
+python Modify_artifact_location.py \
+  --epochs 5 \
+  --phase development \
+  --target_path "/lustre/orion/atm112/scratch/patrickfan/MLFlow/mlflow_artifacts"
+```
+
+### 2. Zero-Copy Register & Inference
+Registers the model using the existing storage path (no file movement) and performs an inference sanity check. This script resolves the absolute path from the MLflow metadata and loads the model directly from the filesystem.
+
+```bash
+python Modify_artifact_location_register_inference.py \
+  --run_id <YOUR_RUN_ID> \
+  --model_name "MNIST_Large_Model"
+```
+
 ### Available Arguments
 
 | Argument | Default | Description |
