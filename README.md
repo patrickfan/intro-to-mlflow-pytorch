@@ -91,7 +91,7 @@ Standard MLflow operations upload model artifacts to the tracking server. Howeve
 Runs the training session but forces the artifacts to be stored in a specific local or shared directory (--target_path) instead of uploading them to the server.
 
 ```bash
-python Modify_artifact_location.py \
+python relocate_artifact_location.py \
   --epochs 5 \
   --phase development \
   --target_path "/lustre/orion/atm112/scratch/patrickfan/MLFlow/mlflow_artifacts"
@@ -101,7 +101,7 @@ python Modify_artifact_location.py \
 Registers the model using the existing storage path (no file movement) and performs an inference sanity check. This script resolves the absolute path from the MLflow metadata and loads the model directly from the filesystem.
 
 ```bash
-python Modify_artifact_location_register_inference.py \
+python relocate_artifact_location_register_inference.py \
   --run_id <YOUR_RUN_ID> \
   --model_name <model name>
 ```
@@ -114,8 +114,8 @@ python Modify_artifact_location_register_inference.py \
 ├── train_mnist_mlflow.py                     # Standard training script (Logs artifacts to MLflow server)
 ├── register_and_inference.py                 # Standard registration & inference (Downloads model from server)
 ├── upload_external_model.py                  # Utility to upload an existing local model to MLflow
-├── Modify_artifact_location.py               # [Large Model] Training script that saves artifacts to a local shared path 
-├── Modify_artifact_location_register_inference.py # [Large Model] Zero-copy registration & inference from shared storage
+├── relocate_artifact_location.py               # [Large Model] Training script that saves artifacts to a local shared path 
+├── relocate_artifact_location_register_inference.py # [Large Model] Zero-copy registration & inference from shared storage
 └── README.md                  # Project documentation
 ```
 
