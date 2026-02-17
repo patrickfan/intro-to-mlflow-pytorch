@@ -132,7 +132,7 @@ scikit-learn
 urllib3
 ```
 
-## 🧠 Core MLflow Concepts
+## Core MLflow Concepts
 
 ### 1. Experiments
 High-level logical groupings of related runs. This helps separate different projects or major architectural changes.
