@@ -1,6 +1,6 @@
 # MNIST Training with MLflow & PyTorch
 
-This project demonstrates a complete MLOps lifecycle using **PyTorch** for model training and **MLflow** for experiment tracking, model registration, and alias-based deployment.
+This project provides a standardized MLOps lifecycle using **PyTorch** for model training and **MLflow** for experiment tracking, model registration, and alias-based deployment.
 
 It serves as a reference implementation for integrating the American Science Cloud MLflow server into research workflows.
 
