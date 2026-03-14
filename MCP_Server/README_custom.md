@@ -1,4 +1,4 @@
-# MLflow MCP Server (Custom: My Runs)
+# MLflow MCP Server (MLflow Analysis Agent - Custom My Runs)
 
 This document describes `server_custom.py`, a custom MCP server tailored to help you find
 runs you worked on and quickly identify the best run by metric (e.g., `val_accuracy`).
