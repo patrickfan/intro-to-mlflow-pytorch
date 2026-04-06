@@ -32,7 +32,7 @@ export AM_SC_API_KEY="your-secret-token-here"
 
 $env:AM_SC_API_KEY="your-secret-token-here"
 
-## Accelerated Large Model Uploads (Proxy Multi-part)
+## Large Model Uploads (Proxy Multi-part)
 
 When logging massive foundation models (e.g., **Llama-3**, **>10GB**) from compute nodes to the MLflow tracking server, standard single-thread uploads can lead to network timeouts or bottlenecked performance.
 
