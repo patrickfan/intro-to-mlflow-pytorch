@@ -32,6 +32,55 @@ export AM_SC_API_KEY="your-secret-token-here"
 
 $env:AM_SC_API_KEY="your-secret-token-here"
 
+## Accelerated Large Model Uploads (Proxy Multi-part)
+
+When logging massive foundation models (e.g., **Llama-3**, **>10GB**) from compute nodes to the MLflow tracking server, standard single-thread uploads can lead to network timeouts or bottlenecked performance.
+
+To solve this, our MLflow infrastructure supports **Proxy Multi-part Uploads**. This feature automatically chunks large files and uploads them concurrently, drastically reducing transfer times and preventing timeout failures.
+
+### How to Enable
+
+This feature is **100% transparent** to your existing code. You do **not** need to modify your `mlflow.pytorch.log_model()` or `mlflow.transformers.log_model()` calls.
+
+Simply enable it by setting the following three environment variables before your run.
+
+---
+
+### Option A: Via Terminal / SLURM `sbatch` Script (Recommended)
+
+Add these lines to your job script before executing your Python code:
+
+```bash
+# Enable proxy multi-part upload acceleration
+export MLFLOW_ENABLE_PROXY_MULTIPART_UPLOAD=true
+
+# Set chunking thresholds
+export MLFLOW_MULTIPART_UPLOAD_MINIMUM_FILE_SIZE=5242880  # 5 MB threshold to trigger chunking
+export MLFLOW_MULTIPART_UPLOAD_CHUNK_SIZE=104857600       # 100 MB per chunk
+```
+
+---
+
+### Option B: Directly in Python
+
+If you prefer to keep everything inside your script, inject the variables at the very top of your file (**must be done before importing `mlflow`**):
+
+```python
+import os
+
+# Enable proxy multi-part upload acceleration
+os.environ["MLFLOW_ENABLE_PROXY_MULTIPART_UPLOAD"] = "true"
+os.environ["MLFLOW_MULTIPART_UPLOAD_MINIMUM_FILE_SIZE"] = "5242880"  # 5 MB
+os.environ["MLFLOW_MULTIPART_UPLOAD_CHUNK_SIZE"] = "104857600"       # 100 MB
+
+import mlflow
+
+# ... rest of your code ...
+```
+
+---
+
+
 ## Usage
 
 ### 1. Development Run (Tracking Only)
